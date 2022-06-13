@@ -16,7 +16,7 @@ const Document = ({ children }) => (
         dangerouslySetInnerHTML={{ __html: children }}
       />
     </body>
-    <script src="./main.js"></script>
+    <script src="./build/main.js"></script>
   </html>
 );
 
