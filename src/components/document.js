@@ -1,6 +1,6 @@
 import React from "react";
 
-const Document = () => (
+const Document = ({ children }) => (
   <html lang="en">
     <head>
       <meta charSet="UTF-8" />
@@ -11,7 +11,10 @@ const Document = () => (
       <title>simple-ssr</title>
     </head>
     <body>
-      <div id="root" />
+      <div
+        id="root"
+        dangerouslySetInnerHTML={{ __html: children }}
+      />
     </body>
     <script src="./main.js"></script>
   </html>
