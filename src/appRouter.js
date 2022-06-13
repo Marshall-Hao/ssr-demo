@@ -1,7 +1,7 @@
 const express = require("express");
 import React from "react";
 import ReactDomServer from "react-dom/server";
-import Document from "./document";
+import Document from "./components/document";
 const router = express.Router();
 
 const html = ReactDomServer.renderToString(<Document />);

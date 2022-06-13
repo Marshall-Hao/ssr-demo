@@ -16,9 +16,9 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new CopyPlugin({
-      patterns: [{ from: "public/index.html" }],
-    }),
-  ],
+  //   plugins: [
+  //     new CopyPlugin({
+  //       patterns: [{ from: "public/index.html" }],
+  //     }),
+  //   ],
 };

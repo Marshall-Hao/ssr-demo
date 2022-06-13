@@ -9,7 +9,9 @@ const appRouter = require("./appRouter");
 const app = express();
 
 app.use("/", appRouter);
-app.use(express, static("build"));
+
+// *https://expressjs.com/en/starter/static-files.html 可直接使用静态资源
+app.use(express.static("build"));
 
 app.listen(3000, () => {
   console.log("demo runs on port 3000");
