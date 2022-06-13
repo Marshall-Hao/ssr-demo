@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { fetchHome } from "../core/api";
+import { dataContext } from "../core/context";
 
-const Home = (props) => {
-  console.log(props);
+const Home = () => {
+  const context = useContext(dataContext);
+  console.log("dataContext", context);
   // * 类似didmount
   //   *https://www.ruanyifeng.com/blog/2020/09/react-hooks-useeffect-tutorial.html
   useEffect(() => {
