@@ -1,10 +1,15 @@
 import React from "react";
-import { Routes, Route, NavLink } from "react-router-dom";
-import Home from "./Home";
-import User from "./User";
-import NotFound from "./NotFound";
+import {
+  Routes,
+  Route,
+  NavLink,
+  useRoutes,
+} from "react-router-dom";
+
+import AllRoutes from "../core/routes";
 
 export default () => {
+  const routes = useRoutes(AllRoutes);
   return (
     <>
       <ul>
@@ -18,11 +23,7 @@ export default () => {
           <NavLink to="/404">to 404</NavLink>
         </li>
       </ul>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/user" element={<User />} />
-        <Route path="/404" element={<NotFound />} />
-      </Routes>
+      {routes}
     </>
   );
 };

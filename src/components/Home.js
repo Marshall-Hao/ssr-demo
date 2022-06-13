@@ -18,4 +18,5 @@ const Home = () => {
   );
 };
 
+Home.getData = fetchHome;
 export default Home;

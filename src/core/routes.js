@@ -1,20 +1,19 @@
 import Home from "../components/Home";
 import User from "../components/User";
 import NotFound from "../components/NotFound";
+import React from "react";
 
-const routes = [
+export default [
   {
     path: "/",
-    component: Home,
+    element: <Home />,
   },
   {
     path: "/user",
-    component: User,
+    element: <User />,
   },
   {
     path: "/404",
-    component: NotFound,
+    element: <NotFound />,
   },
 ];
-
-export default routes;
