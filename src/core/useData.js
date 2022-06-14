@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const useData = (context) => {
+const useData = (context, getData) => {
   const getInitialData = () => {
     if (context) {
       console.log("server render");
@@ -15,6 +15,17 @@ const useData = (context) => {
     }
   };
   const [data, setData] = useState(getInitialData());
+
+  useEffect(() => {
+    // * client first render
+    if (window.__APP_DATA__) {
+      window.__APP_DATA__ = void 0;
+    }
+    console.log("spa render");
+    getData()
+      .then((res) => setData(res))
+      .catch();
+  }, []);
   return [data, setData];
 };
 
