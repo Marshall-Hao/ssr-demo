@@ -7,16 +7,29 @@ import { fetchHome } from "../core/api";
 import { dataContext } from "../core/context";
 
 const Home = () => {
-  const context = useContext(dataContext) || {};
+  const context = useContext(dataContext);
   console.log("dataContext", context);
-  const [home, setHome] = useState(context);
+  const getInitialData = () => {
+    if (context) {
+      console.log("server render");
+      return context;
+    }
+    if (window.__APP_DATA__) {
+      console.log(
+        "client first render",
+        window.__APP_DATA__
+      );
+      return window.__APP_DATA__;
+    }
+  };
+  const [home, setHome] = useState(getInitialData());
   // * 类似didmount
   //   *https://www.ruanyifeng.com/blog/2020/09/react-hooks-useeffect-tutorial.html
-  useEffect(() => {
-    fetchHome().then((data) => {
-      setHome(data);
-    });
-  }, []);
+  //   useEffect(() => {
+  //     fetchHome().then((data) => {
+  //       setHome(data);
+  //     });
+  //   }, []);
 
   return (
     <main>

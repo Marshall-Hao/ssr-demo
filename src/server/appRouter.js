@@ -5,7 +5,6 @@ import Document from "../components/document";
 import App from "../components/app";
 import { matchPath } from "react-router-dom";
 import { StaticRouter } from "react-router-dom/server";
-import { fetchUser } from "../core/api";
 import { dataContext } from "../core/context";
 import routes from "../core/routes";
 
@@ -33,7 +32,7 @@ router.get("*", async (req, res) => {
     );
 
     const html = ReactDomServer.renderToStaticMarkup(
-      <Document>{appString}</Document>
+      <Document data={data}>{appString}</Document>
     );
     res.send(html);
   } catch (e) {}
